@@ -138,11 +138,13 @@ def evaluate_network(batch_size, activation_idx):
     train_ds = EMNISTDataset(X_TRAIN, Y_TRAIN)
     val_ds = EMNISTDataset(X_VAL, Y_VAL)
     
-    train_loader = DataLoader(train_ds, batch_size=bs, shuffle=True)
+    # --- FIX: drop_last=True prevents crash on batch size 1 ---
+    train_loader = DataLoader(train_ds, batch_size=bs, shuffle=True, drop_last=True)
     val_loader = DataLoader(val_ds, batch_size=bs, shuffle=False)
 
     # 3. Initialize Model and Optimizer
     model = Net(activation_name).to(DEVICE)
+    # Ensure you are using the momentum fix from before
     optimizer = torch.optim.SGD(model.parameters(), lr=LEARNING_RATE, momentum=0.9)
     criterion = torch.nn.CrossEntropyLoss()
 
@@ -213,11 +215,13 @@ def main():
     print(f"Activation: {best_act_name}")
     print(f"Validation F1 (approx): {best_f1:.4f}")
 
-    # 5. Train Final Model
+# 5. Train Final Model
     print(f"\nTraining final model for {FINAL_EPOCHS} epochs...")
     
     train_ds = EMNISTDataset(X_TRAIN, Y_TRAIN)
-    train_loader = DataLoader(train_ds, batch_size=best_bs, shuffle=True)
+    
+    # --- FIX: drop_last=True here as well ---
+    train_loader = DataLoader(train_ds, batch_size=best_bs, shuffle=True, drop_last=True)
     
     final_model = Net(best_act_name).to(DEVICE)
     optimizer = torch.optim.SGD(final_model.parameters(), lr=LEARNING_RATE, momentum=0.9)
