@@ -1,0 +1,63 @@
+nohup: ignoring input
+Using device: cuda:4
+Loading data...
+Data Loaded: Train 7613, Val 1904, Test 1049
+DEBUG: Unique labels in y_train: [0 1 2 3 4 5 6 7 8 9]
+
+--- Starting Genetic Algorithm ---
+  Evaluating population of 10...
+Gen 1/5 | Max F1: 0.3010 | Avg F1: 0.0614
+  Best in Gen: BS=122, Act=tanh
+  Evaluating population of 10...
+Gen 2/5 | Max F1: 0.2739 | Avg F1: 0.0916
+  Best in Gen: BS=122, Act=tanh
+  Evaluating population of 10...
+Gen 3/5 | Max F1: 0.3402 | Avg F1: 0.2447
+  Best in Gen: BS=122, Act=tanh
+  Evaluating population of 10...
+Gen 4/5 | Max F1: 0.3858 | Avg F1: 0.2577
+  Best in Gen: BS=122, Act=tanh
+  Evaluating population of 10...
+Gen 5/5 | Max F1: 0.3827 | Avg F1: 0.2387
+  Best in Gen: BS=122, Act=tanh
+
+GA Plot saved to ga_fitness_progress.png
+
+--- Best Hyperparameters Found ---
+Batch Size: 122
+Activation: tanh
+
+Training final model for 30 epochs...
+Epoch 1: Train F1 = 0.4604
+Epoch 2: Train F1 = 0.7246
+Epoch 3: Train F1 = 0.8082
+Epoch 4: Train F1 = 0.8382
+Epoch 5: Train F1 = 0.8570
+Epoch 6: Train F1 = 0.8669
+Epoch 7: Train F1 = 0.8714
+Epoch 8: Train F1 = 0.8790
+Epoch 9: Train F1 = 0.8829
+Epoch 10: Train F1 = 0.8897
+Epoch 11: Train F1 = 0.8932
+Epoch 12: Train F1 = 0.8951
+Epoch 13: Train F1 = 0.8972
+Epoch 14: Train F1 = 0.8978
+Epoch 15: Train F1 = 0.9039
+Epoch 16: Train F1 = 0.9028
+Epoch 17: Train F1 = 0.9062
+Epoch 18: Train F1 = 0.9080
+Epoch 19: Train F1 = 0.9079
+Epoch 20: Train F1 = 0.9083
+Epoch 21: Train F1 = 0.9090
+Epoch 22: Train F1 = 0.9112
+Epoch 23: Train F1 = 0.9114
+Epoch 24: Train F1 = 0.9167
+Epoch 25: Train F1 = 0.9181
+Epoch 26: Train F1 = 0.9149
+Epoch 27: Train F1 = 0.9186
+Epoch 28: Train F1 = 0.9195
+Epoch 29: Train F1 = 0.9206
+Epoch 30: Train F1 = 0.9221
+Training Plot saved to final_training_f1.png
+
+Final Test F1 Score: 0.9101
